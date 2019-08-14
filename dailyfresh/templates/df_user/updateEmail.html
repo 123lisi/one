@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/dailyfresh/static/js/jquery-1.12.4.min.js"></script>
+    <style>
+        span {
+            width: 80px;
+        }
+
+        .ss{
+            width: 80px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .k{
+            margin: 10px;
+        }
+        .from{
+            width: 370px;
+            /*margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 40%;*/
+        }
+        .btn{
+            background-color: #1ab394;
+            border-radius: 4px;
+            border: 1px solid #1ab394;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="from">
+    <form id="pwdFrom" action="/df_user/updatpwa" method="GET">
+        <div class="k">
+            <div class="ss" style="float: left"><span>电子邮箱</span></div>
+            <div style="float: left"><input id="oldPwd" type="text" name="email" placeholder="邮箱"/></div>
+
+        <div style="float: right">
+            <input class="btn" type="submit" onclick="beforeSubmit()" value="确认更改"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

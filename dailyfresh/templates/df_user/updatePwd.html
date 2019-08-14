@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/dailyfresh/static/js/jquery-1.12.4.min.js"></script>
+    <style>
+        span {
+            width: 80px;
+        }
+
+        .ss{
+            width: 80px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .k{
+            margin: 10px;
+        }
+        .from{
+            width: 300px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 40%;
+        }
+        .btn{
+            margin-right: 20px;
+            background-color: #1ab394;
+            border-radius: 4px;
+            border: 1px solid #1ab394;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="from">
+    <form id="pwdFrom">
+        <div class="k">
+            <div class="ss" style="float: left"><span>原密码</span></div>
+            <div style="float: left"><input id="oldPwd" type="password" placeholder="请输入原密码"/></div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="k">
+            <div class="ss" style="float: left"><span>新密码</span></div>
+            <div style="float: left"><input id="newPwd" type="password" placeholder="请输入新密码"/></div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="k">
+            <div class="ss" style="float: left"><span>确认密码</span></div>
+            <div style="float: left"><input id="confirmPwd" type="password" placeholder="请确认密码"/></div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div style="text-align: right">
+            <input class="btn" type="button" onclick="beforeSubmit()" value="确认更改"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<script>
+    function beforeSubmit() {
+        var newPwd = document.getElementById('newPwd').value;
+        var confirmPwd = document.getElementById('confirmPwd').value;
+        if (newPwd != confirmPwd) {
+            alert('两次输入的密码不一致！');
+            return false;
+        } else {
+            alert(1);
+            $.ajax({
+                //几个参数需要注意一下
+                type: "GET",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "",//url
+                data: {"newPwd":newPwd},
+                success: function (result) {
+
+                }
+            });
+        }
+    }
+
+
+</script>

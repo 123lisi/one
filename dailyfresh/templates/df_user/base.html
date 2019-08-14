@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="clearfix">
+		<div style="margin-right:75px" class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="/df_user/info"  {% if info %}class="active"{% endif %}>· 用户的信息</a></li>
+				<li><a href="/df_user/order1" {% if order %}class="active"{% endif %}>· 用户的订单</a></li>
+				<li><a href="/df_user/site" {% if site %}class="active"{% endif %}>· 收货的地址</a></li>
+			</ul>
+		</div>
+        {% block right_content %}
+        {% endblock right_content %}
+    </div>
+{% endblock body %}

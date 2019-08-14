@@ -1,0 +1,86 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.out {
+    margin: auto;
+    position: relative;
+    width: 760px;
+    height: 270px;
+}
+
+.out .img li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+}
+
+.num {
+    z-index: 9999;
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    height: 13px;
+    text-align: center;
+    font-size: 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    filter: alpha(opacity:30);
+}
+
+.num li {
+    border-radius: 10px;
+    margin: 2px;
+    display: inline-block;
+    display: -moz-inline-stack;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+.num li a {
+    display: block;
+    padding-top: 9px;
+    width: 9px;
+    height: 0;
+    border-radius: 50%;
+    background: #B7B7B7;
+    overflow: hidden;
+}
+
+.num .selected a {
+    background: #F40;
+}
+
+.out .btn {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 40px;
+    margin-top: -30px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    display: none;
+}
+
+.out:hover .btn {
+    display: block;
+    cursor: pointer;
+}
+
+.out .left {
+    left: 0;
+}
+
+.out .right {
+    right: 0;
+}

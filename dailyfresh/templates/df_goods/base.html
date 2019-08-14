@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="navbar_con">
+        <div class="navbar clearfix">
+            <div class="subnav_con fl">
+                <h1>全部商品分类</h1>
+                <span></span>
+                <ul class="subnav">
+                    <li><a href="/df_goods/list1_1_1" >古代瓷器</a></li>
+                    <li><a href="/df_goods/list2_1_1" >古代玉器</a></li>
+                    <li><a href="/df_goods/list3_1_1" >古代书画</a></li>
+                    <li><a href="/df_goods/list4_1_1" >古代铜器</a></li>
+                </ul>
+            </div>
+            <ul class="navlist fl">
+                <li><a href="/df_goods">首页</a></li>
+                <!-- <li class="interval">|</li> -->
+
+            </ul>
+        </div>
+    </div>
+    <div class="breadcrumb">
+        <a href="#">全部分类</a>
+        <span>></span>
+        <a href="Javascript:">{{ goodsType.ttitle }}</a>
+        {% block detail %}
+        {% endblock detail %}
+    </div>
+    {% block goods_detail_con %}
+        {#        只在detail里面有#}
+    {% endblock goods_detail_con %}
+    {% block new_p%}
+    {% endblock new_p %}
+        {% block r_wrap %}
+        {% endblock r_wrap %}
+    </div>
+{% endblock body %}

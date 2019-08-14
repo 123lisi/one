@@ -1,0 +1,82 @@
+{% extends 'df_goods/base.html' %}
+
+{% block script %}
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $('.add_goods').click(function () {
+            url = '/df_cart/add'+this.id+'_1';
+            $.get(url,function (data) {
+               $("#show_count").text(data.count);
+            });
+
+        });
+        $(document).ready(function () {
+                var menuYloc = $("#rightmenu").offset().top; //此ID为随着屏幕滚动div的ID
+                $(window).scroll(function () {
+                    var offsetTop = menuYloc + $(window).scrollTop() + "px";
+                    $("#rightmenu").animate({ top: offsetTop }, { duration: 600, queue: false }); //此ID为随着屏幕滚动div的ID
+                });
+            });
+    </script>
+    
+{% endblock script %}
+{% block new_p%}
+<div class="main_wrap clearfix">
+    <div id="rightmenu" class="l_wrap fr clearfix">
+        <div class="new_goods">
+            <h3>最新商品</h3>
+            <ul>
+                {% for g in newGoods %}
+                    <li>
+                        <a href="/df_goods/{{ g.id }}"><img src="/static/{{ g.gpic }}"></a>
+                        <h4><a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a></h4>
+                        <div class="prize">{{ g.gprice }}</div>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+
+{% endblock new_p %}
+{% block r_wrap %}
+
+    <div class="r_wrap fl clearfix">
+        <div class="sort_bar">
+            <a href="/df_goods/list{{ typeid }}_1_1" {% if sort == '1' %}class="active"{% endif %}>默认</a>
+            <a href="/df_goods/list{{ typeid }}_1_2" {% if sort == '2' %}class="active"{% endif %}>价格</a>
+            <a href="/df_goods/list{{ typeid }}_1_3" {% if sort == '3' %}class="active"{% endif %}>人气</a>
+        </div>
+
+        <ul class="goods_type_list clearfix">
+            {% for g in pageGoods %}
+                <li>
+                    <a href="/df_goods/{{ g.id }}"><img src="/static/{{ g.gpic }}"></a>
+                    <h4><a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a></h4>
+                    <div class="operate">
+                        <span class="prize">{{ g.gprice }}</span>
+                        <span class="unit">{{ g.gunit }}</span>
+                        <a href="javascript:" id= {{ g.id }} class="add_goods" title="加入购物车"></a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="pagenation">
+            {% if pageid > 1 %}
+                <a href="/df_goods/list{{ typeid }}_{{ pageid|add:-1 }}_{{ sort }}">上一页</a>
+            {% endif %}
+            {% for index in indexList %}
+                {% if index == pageid %}
+                    <a href="/df_goods/list{{ typeid }}_{{ index }}_{{ sort }}" class="active">{{ index }}</a>
+                {% else %}
+                    <a href="/df_goods/list{{ typeid }}_{{ index }}_{{ sort }}">{{ index }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if pageid < indexList|length %}
+                <a href="/df_goods/list{{ typeid }}_{{ pageid|add:1 }}_{{ sort }}">下一页</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock r_wrap %}

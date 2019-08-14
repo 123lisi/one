@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+    {% block head %}
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/static/js/slide.js"></script>
+	<script type="text/javascript" src="/static/js/pictureCarousel.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/pictureCarousel.css">
+    {% endblock head %}
+
+
+{% block body %}
+
+
+	<div class="navbar_con">
+		<div class="navbar">
+			<h1 class="fl">全部商品分类</h1>
+			<ul class="navlist fl">
+				<li><a href="">首页</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="center_con clearfix">
+		<ul class="subnav fl">
+			<li class="goodList" data="1"><a href="/df_goods/list1_1_1" >古代瓷器</a></li>
+			<li class="goodList" data="2"><a href="/df_goods/list2_1_1" >古代玉器</a></li>
+			<li class="goodList" data="3"><a href="/df_goods/list3_1_1" >古代书画</a></li>
+			<li class="goodList" data="4"><a href="/df_goods/list4_1_1" >古代铜器</a></li>
+			<!-- <li><a href="/df_goods/list5_1_1" class="vegetables">蔬菜酸料</a></li>
+			<li><a href="/df_goods/list6_1_1" class="ice">速冻食品</a></li> -->
+		</ul>
+		<div class="out fl">
+			<ul class="img">
+				<li><a href="#"><img src="/static/images/slide.jpg" alt=""></a></li>
+				<li><a href="#"><img src="/static/images/slide02.jpg" alt=""></a></li>
+				<li><a href="#"><img src="/static/images/slide03.jpg" alt=""></a></li>
+				<li><a href="#"><img src="/static/images/slide04.jpg" alt=""></a></li>
+			   
+			</ul>
+			<ul class="num">
+		
+			</ul>
+			<div class="left btn">&lt;</div>
+			<div class="right btn">&gt;</div>
+		</div>
+		<div class="adv fl">
+			<a href="#"><img id="advImg1" src="/static/images/adv1.jpg"></a>
+			<a href="#"><img id="advImg2" src="/static/images/adv2.jpg"></a>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model01">古代瓷器</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+                {% for g in fruit %}
+				<a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a>
+                {% endfor %}
+			</div>
+			<a href="/df_goods/list1_1_1" class="goods_more fr" id="fruit_more">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/images/banner01.jpg"></div>
+			<ul class="goods_list fl">
+                {% for g in fruit2 %}
+				<li>
+					<h4><a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a></h4>
+					<a href="/df_goods/{{ g.id }}"><img src="/static/{{ g.gpic }}"></a>
+					<div class="prize">{{ g.gprice }}</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model02">古代玉器</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+                {% for g in fish %}
+				<a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a>
+				{% endfor %}
+			</div>
+			<a href="/df_goods/list2_1_1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/images/banner02.jpg"></div>
+			<ul class="goods_list fl">
+                {% for g in fish2 %}
+				<li>
+					<h4><a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a></h4>
+					<a href="/df_goods/{{ g.id }}"><img src="/static/{{ g.gpic }}"></a>
+					<div class="prize">{{ g.gprice }}</div>
+				</li>
+                {% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model03">古代书画</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+                {% for g in meat %}
+				<a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a>
+			{% endfor %}
+			</div>
+			<a href="/df_goods/list3_1_1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/images/banner03.jpg"></div>
+			<ul class="goods_list fl">
+                {% for g in meat2 %}
+				<li>
+					<h4><a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a></h4>
+					<a href="/df_goods/{{ g.id }}"><img src="/static/{{ g.gpic }}"></a>
+					<div class="prize">{{ g.gprice }}</div>
+				</li>
+                {% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model04">古代铜器</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+                {% for g in egg %}
+				<a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a>
+                {% endfor %}
+			</div>
+			<a href="/df_goods/list4_1_1" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/images/banner04.jpg"></div>
+			<ul class="goods_list fl">
+                {% for g in egg2 %}
+				<li>
+					<h4><a href="/df_goods/{{ g.id }}">{{ g.gtitle }}</a></h4>
+					<a href="/df_goods/{{ g.id }}"><img src="/static/{{ g.gpic }}"></a>
+					<div class="prize">{{ g.gprice }}</div>
+				</li>
+                {% endfor %}
+			</ul>
+		</div>
+	</div>
+	</div>
+{% endblock body %}
+    {% block script %}
+
+	<!-- <script type="text/javascript" src="js/slideshow.js"></script>
+	<script type="text/javascript">
+		BCSlideshow('focuspic');
+		var oFruit = document.getElementById('fruit_more');
+		var oShownum = document.getElementById('show_count');
+
+		var hasorder = localStorage.getItem('order_finish');
+
+		if(hasorder)
+		{
+			oShownum.innerHTML = '2';
+		}
+
+		oFruit.onclick = function(){
+			window.location.href = 'list.html';
+		}
+	</script> -->
+	<script>
+		$(".goodList").mouseover(function(){
+			if($(this).attr("data")=="1"){
+				$("#advImg1").attr("src","/static/images/adv3.jpg");
+				$("#advImg2").attr("src","/static/images/adv4.jpg");
+			}else if($(this).attr("data")=="2"){
+				$("#advImg1").attr("src","/static/images/adv5.jpg");
+				$("#advImg2").attr("src","/static/images/adv6.jpg");
+			}else if($(this).attr("data")=="3"){
+				$("#advImg1").attr("src","/static/images/adv7.jpg");
+				$("#advImg2").attr("src","/static/images/adv8.jpg");
+			}else if($(this).attr("data")=="4"){
+				$("#advImg1").attr("src","/static/images/adv9.jpg");
+				$("#advImg2").attr("src","/static/images/adv10.jpg");
+			}
+		});
+		$(".goodList").mouseleave(function(){
+				$("#advImg1").attr("src","/static/images/adv1.jpg");
+				$("#advImg2").attr("src","/static/images/adv2.jpg");
+		});
+    </script>
+    {% endblock script %}

@@ -1,0 +1,61 @@
+{% extends 'base_foot.html' %}
+{% block header %}
+    <div class="header_con">
+        <div class="header">
+            <div class="welcome fl">欢迎来到古董交易网站!</div>
+            <div class="fr">
+                {% if request.session.user_name|default:'' != '' %}
+                    <div class="user_link fl">
+                        欢迎您：<em>{{ request.session.user_name }}</em>
+                    </div>
+                    <div class="user_link fl">
+                        <span>|</span>
+                        <a href="/df_user/info">用户中心</a>
+                        <span>|</span>
+                        <a href="/df_cart/">我的购物车</a>
+                        <span>|</span>
+                        <a href="/df_user/order1">我的订单</a>
+                        <span>|</span>
+                        <a href="/df_user/logout">退出登录</a>
+                        <span>|</span>
+                        <a href="/admin/">访问后台</a>
+                    </div>
+                {% else %}
+                    <div class="login_btn fl">
+                        <a href="/df_user/login">登录</a>
+                        <span>|</span>
+                        <a href="/df_user/register">注册</a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="search_bar clearfix">
+        <a href="/df_goods/" class="logo fl"><img src="/static/images/logo.jpg"></a>
+        {% if page_name == 1 %}
+            <div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;{{ page_name_title }}</div>
+            <div class="search_con fr">
+                <form method="get" action="/search">
+                    <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+                    <input type="submit" class="input_btn fr" name="" value="搜索">
+                </form>
+        {% endif %}
+        {% if guest_cart == 1 %}
+            <div class="search_con fl">
+                <form method="get" action="/search">
+                <input type="text" class="input_text fl" name="q" placeholder="搜索商品">
+                <input type="submit" class="input_btn fr" name="" value="搜索">
+                </form>
+            </div>
+            <div class="guest_cart fr">
+                <a href="/df_cart/" class="cart_name fl">购物车</a>
+                <div class="goods_count fl" id="show_count">0</div>
+            </div>
+        {% endif %}
+        </div>
+
+
+    </div>
+{% endblock header %}
